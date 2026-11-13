@@ -203,6 +203,11 @@ function toggleWatch(symbol) {
 
 function selectStock(symbol) {
   selectedSymbol = symbol;
+
+  document.dispatchEvent(new CustomEvent("stock-selected", {
+    detail: { symbol }
+  }));
+
   currentRange = "1mo";
   currentInterval = "1d";
 
