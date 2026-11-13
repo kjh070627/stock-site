@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f8fa">
+  <title>STOCKLY — 미국 주식 분석</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#"><span class="brand-mark">S</span><span>stockly</span></a>
+      <div class="side-label">WORKSPACE</div>
+      <button class="nav-item active"><span>▦</span> 대시보드</button>
+      <button class="nav-item" id="watchlistNav"><span>☆</span> 관심 종목</button>
+      <div class="sidebar-note">
+        <div class="note-icon">✦</div>
+        <strong>나만의 투자 대시보드</strong>
+        <p>관심 있는 미국 주식을 한곳에서 살펴보세요.</p>
+      </div>
+      <div class="sidebar-bottom">STOCKLY <span>·</span> BETA</div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">MARKET OVERVIEW</div>
+          <h1>좋은 투자 판단은<br class="mobile-break"> 좋은 정보에서 시작돼요.</h1>
+        </div>
+        <div class="top-actions">
+          <span class="market-pill"><i></i> 미국 주식</span>
+          <button class="avatar" aria-label="프로필">U</button>
+        </div>
+      </header>
+
+      <section class="search-panel">
+        <div class="search-copy">
+          <span class="eyebrow">STOCK SEARCH</span>
+          <h2>어떤 종목이 궁금하세요?</h2>
+          <p>미국 주식 티커 또는 회사 심볼을 입력해 보세요.</p>
+        </div>
+        <form id="searchForm" class="search-box">
+          <span class="search-icon">⌕</span>
+          <input id="symbolInput" autocomplete="off" maxlength="12" placeholder="예: AAPL, NVDA, MSFT" aria-label="주식 티커">
+          <button type="submit">분석하기 <span>→</span></button>
+        </form>
+        <div class="quick-tickers">
+          <span>인기 종목</span>
+          <button data-symbol="AAPL">AAPL</button>
+          <button data-symbol="NVDA">NVDA</button>
+          <button data-symbol="MSFT">MSFT</button>
+          <button data-symbol="TSLA">TSLA</button>
+          <button data-symbol="AMZN">AMZN</button>
+        </div>
+      </section>
+
+      <div id="statusMessage" class="status-message" role="status">주가 데이터를 불러오는 중이에요...</div>
+
+      <section class="section-heading">
+        <div><span class="eyebrow">YOUR WATCHLIST</span><h2>관심 종목</h2></div>
+        <span class="subtle" id="watchCount">0개 종목</span>
+      </section>
+      <section id="stockGrid" class="stock-grid" aria-live="polite">
+        <div class="loading-card">시장 데이터를 불러오고 있어요<span class="loader"></span></div>
+      </section>
+
+      <section class="detail-section" id="detailSection">
+        <div class="section-heading detail-heading">
+          <div><span class="eyebrow">STOCK INSIGHT</span><h2 id="detailTitle">종목 상세 분석</h2></div>
+          <button id="addWatchBtn" class="outline-button" disabled>☆ 관심 종목 추가</button>
+        </div>
+        <div id="detailContent" class="detail-placeholder">위 종목 카드나 검색창에서 종목을 선택하면 상세 정보가 표시돼요.</div>
+      </section>
+
+      <footer>
+        <span>STOCKLY</span>
+        <p>정보 제공 목적의 서비스이며 투자 권유가 아닙니다. 데이터는 지연되거나 일시적으로 제공되지 않을 수 있습니다.</p>
+      </footer>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
